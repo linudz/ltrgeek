@@ -1,0 +1,1 @@
+gt ltrharvest     -index /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa     -seed 30      -minlenltr 100     -maxlenltr 1000     -mindistltr 1000     -maxdistltr 15000     -similar 85     -mintsd 4     -maxtsd 4     -vic 60     -overlaps best     -xdrop 5     -mat 2     -mis -2     -ins -3     -del -3 

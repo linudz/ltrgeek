@@ -1,0 +1,121 @@
+Jun-28 03:01:13.647 [main] DEBUG nextflow.cli.Launcher - $> /Users/linudz/anaconda2/envs/fabioenv/bin/nextflow ltrgeek.nf -c default_config.cfg
+Jun-28 03:01:13.788 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 0.29.0
+Jun-28 03:01:13.806 [main] INFO  nextflow.cli.CmdRun - Launching `ltrgeek.nf` [cheeky_rosalind] - revision: dd490f54cf
+Jun-28 03:01:13.831 [main] DEBUG nextflow.config.ConfigBuilder - User config file: default_config.cfg
+Jun-28 03:01:13.835 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/default_config.cfg
+Jun-28 03:01:13.890 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-28 03:01:14.303 [main] DEBUG nextflow.Session - Session uuid: 15dedfd1-ab7d-46aa-93f9-a5b54aa0c244
+Jun-28 03:01:14.304 [main] DEBUG nextflow.Session - Run name: cheeky_rosalind
+Jun-28 03:01:14.304 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jun-28 03:01:14.340 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 0.29.0 build 4803
+  Modified: 24-04-2018 08:09 UTC (04:09 EDT)
+  System: Mac OS X 10.13.5
+  Runtime: Groovy 2.4.15 on OpenJDK 64-Bit Server VM 1.8.0_121-b15
+  Encoding: UTF-8 (UTF-8)
+  Process: 52718@Fabios-MacBook-Pro.local [143.48.49.91]
+  CPUs: 4 - Mem: 8 GB (22.3 MB) - Swap: 3 GB (712.2 MB)
+Jun-28 03:01:14.347 [main] DEBUG nextflow.Session - Work-dir: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/work [Mac OS X]
+Jun-28 03:01:14.348 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/bin
+Jun-28 03:01:14.516 [main] DEBUG nextflow.Session - Session start invoked
+Jun-28 03:01:14.522 [main] DEBUG nextflow.processor.TaskDispatcher - Dispatcher > start
+Jun-28 03:01:14.523 [main] DEBUG nextflow.script.ScriptRunner - > Script parsing
+Jun-28 03:01:14.674 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-28 03:01:14.762 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: null
+Jun-28 03:01:14.762 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'local'
+Jun-28 03:01:14.775 [main] DEBUG nextflow.executor.Executor - Initializing executor: local
+Jun-28 03:01:14.779 [main] INFO  nextflow.executor.Executor - [warm up] executor > local
+Jun-28 03:01:14.786 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=8 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Jun-28 03:01:14.790 [main] DEBUG nextflow.processor.TaskDispatcher - Starting monitor: LocalPollingMonitor
+Jun-28 03:01:14.791 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-28 03:01:14.792 [main] DEBUG nextflow.executor.Executor - Invoke register for executor: local
+Jun-28 03:01:14.925 [main] DEBUG nextflow.Session - >>> barrier register (process: harvestlaunch)
+Jun-28 03:01:14.933 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > harvestlaunch -- maxForks: 4
+Jun-28 03:01:14.962 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jun-28 03:01:14.962 [main] DEBUG nextflow.Session - Session await
+Jun-28 03:01:15.092 [Task submitter] WARN  nextflow.processor.TaskProcessor - Environment variable `harvest_vic` evaluates to an empty value
+Jun-28 03:01:15.097 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-28 03:01:15.103 [Task submitter] INFO  nextflow.Session - [ef/e8537a] Submitted process > harvestlaunch
+Jun-28 03:01:21.797 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: harvestlaunch; status: COMPLETED; exit: 127; error: -; workDir: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/work/ef/e8537ac6b1cb873fb807b5392e4021]
+Jun-28 03:01:21.836 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'harvestlaunch'
+
+Caused by:
+  Process `harvestlaunch` terminated with an error exit status (127)
+
+Command executed:
+
+  # 1.1: Launch suffixerator. Creates an index that is needed for LTRharvest run
+  
+  cp /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa .
+  gt suffixerator -db /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa -indexname /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa -tis -suf -lcp -des -ssp -sds -dna
+  
+  # 1.2: Launch LTRharvest with the parameters defined in the config file
+  
+  gt ltrharvest     -index /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa
+  -seed 30      -minlenltr 100     -maxlenltr 1000     -mindistltr 1000     -maxdistltr 15000     -similar 85     -mintsd 4     -maxtsd 4     -motifmis 4     -vic      -overlaps best     -xdrop 5     -mat 2     -mis -2     -ins -3     -del -3
+
+Command exit status:
+  127
+
+Command output:
+  # args=-index /Users/linudz/WorkFlows/LTRGeek/ltrgeek/peach_reduced.fa
+  # predictions are reported in the following way
+  # s(ret) e(ret) l(ret) s(lLTR) e(lLTR) l(lLTR) s(rLTR) e(rLTR) l(rLTR) sim(LTRs) seq-nr 
+  # where:
+  # s = starting position
+  # e = ending position
+  # l = length
+  # ret = LTR-retrotransposon
+  # lLTR = left LTR
+  # rLTR = right LTR
+  # sim = similarity
+  # seq-nr = sequence number
+  21842  23654  1813  21842  22029  188  23470  23654  185  93.09  0
+  35770  38282  2513  35770  36058  289  37988  38282  295  88.47  0
+  53281  58305  5025  53281  53554  274  58041  58305  265  91.61  0
+  75609  76910  1302  75609  75737  129  76780  76910  131  87.02  0
+  84436  89645  5210  84436  84709  274  89373  89645  273  98.91  0
+  266  2682  2417  266  743  478  2199  2682  484  94.42  1
+  27990  31407  3418  27990  28560  571  30839  31407  569  96.50  1
+  37522  39628  2107  37522  37815  294  39340  39628  289  87.41  1
+  42428  46000  3573  42428  42807  380  45626  46000  375  90.79  1
+  75342  85156  9815  75342  75698  357  84792  85156  365  85.75  1
+  954  4400  3447  954  1659  706  3690  4400  711  92.26  2
+  1248  3467  2220  1248  1566  319  3153  3467  315  95.61  3
+  55254  57442  2189  55254  56177  924  56524  57442  919  93.72  3
+  4531  14654  10124  4531  4864  334  14321  14654  334  98.50  4
+  39621  41522  1902  39621  40252  632  40889  41522  634  91.96  4
+  69969  73213  3245  69969  70503  535  72682  73213  532  90.84  4
+  91389  92525  1137  91389  91510  122  92396  92525  130  87.69  4
+  33602  38817  5216  33602  34507  906  37918  38817  900  94.81  5
+  50561  52319  1759  50561  50996  436  51878  52319  442  87.33  5
+  52587  54766  2180  52587  52703  117  54651  54766  116  89.74  5
+  62800  64613  1814  62800  63082  283  64333  64613  281  87.99  5
+  91023  96769  5747  91023  91391  369  96392  96769  378  96.83  5
+  2193  3426  1234  2193  2344  152  3280  3426  147  94.08  6
+  13880  19653  5774  13880  14183  304  19363  19653  291  93.42  6
+  60908  66283  5376  60908  61163  256  66027  66283  257  97.28  6
+  68541  70785  2245  68541  68649  109  70673  70785  113  85.84  6
+  73615  79432  5818  73615  74368  754  78672  79432  761  96.71  6
+  89311  90933  1623  89311  89530  220  90716  90933  218  88.18  6
+  136  1983  1848  136  766  631  1363  1983  621  95.56  7
+  3911  6140  2230  3911  4243  333  5817  6140  324  89.19  7
+  12321  18793  6473  12321  12769  449  18346  18793  448  95.55  7
+  56490  68852  12363  56490  56751  262  68588  68852  265  97.74  7
+  94631  98228  3598  94631  94769  139  98083  98228  146  89.04  7
+
+Command error:
+  .command.sh: line 10: -seed: command not found
+
+Work dir:
+  /Users/linudz/WorkFlows/LTRGeek/ltrgeek/work/ef/e8537ac6b1cb873fb807b5392e4021
+
+Tip: when you have fixed the problem you can continue the execution appending to the nextflow command line the option `-resume`
+Jun-28 03:01:21.841 [Actor Thread 2] DEBUG nextflow.Session - <<< barrier arrive (process: harvestlaunch)
+Jun-28 03:01:21.841 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `harvestlaunch` terminated with an error exit status (127)
+Jun-28 03:01:21.842 [main] DEBUG nextflow.Session - Session await > all process finished
+Jun-28 03:01:21.860 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-28 03:01:21.860 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local)
+Jun-28 03:01:21.888 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=0; failedCount=1; ignoredCount=0; cachedCount=0; succeedDuration=0ms; failedDuration=6.4s; cachedDuration=0ms]
+Jun-28 03:01:21.950 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jun-28 03:01:21.960 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

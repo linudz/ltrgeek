@@ -1,0 +1,45 @@
+Jun-28 03:07:10.736 [main] DEBUG nextflow.cli.Launcher - $> /Users/linudz/anaconda2/envs/fabioenv/bin/nextflow ltrgeek.nf -c default_config.cfg
+Jun-28 03:07:10.890 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 0.29.0
+Jun-28 03:07:10.908 [main] INFO  nextflow.cli.CmdRun - Launching `ltrgeek.nf` [amazing_picasso] - revision: 810f69c97e
+Jun-28 03:07:10.937 [main] DEBUG nextflow.config.ConfigBuilder - User config file: default_config.cfg
+Jun-28 03:07:10.941 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/default_config.cfg
+Jun-28 03:07:11.017 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-28 03:07:11.501 [main] DEBUG nextflow.Session - Session uuid: f41a06dc-ea97-474a-83a3-0235250daf57
+Jun-28 03:07:11.501 [main] DEBUG nextflow.Session - Run name: amazing_picasso
+Jun-28 03:07:11.502 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jun-28 03:07:11.544 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 0.29.0 build 4803
+  Modified: 24-04-2018 08:09 UTC (04:09 EDT)
+  System: Mac OS X 10.13.5
+  Runtime: Groovy 2.4.15 on OpenJDK 64-Bit Server VM 1.8.0_121-b15
+  Encoding: UTF-8 (UTF-8)
+  Process: 53117@Fabios-MacBook-Pro.local [143.48.49.91]
+  CPUs: 4 - Mem: 8 GB (25.9 MB) - Swap: 3 GB (608 MB)
+Jun-28 03:07:11.553 [main] DEBUG nextflow.Session - Work-dir: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/work [Mac OS X]
+Jun-28 03:07:11.553 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/bin
+Jun-28 03:07:11.727 [main] DEBUG nextflow.Session - Session start invoked
+Jun-28 03:07:11.734 [main] DEBUG nextflow.processor.TaskDispatcher - Dispatcher > start
+Jun-28 03:07:11.738 [main] DEBUG nextflow.script.ScriptRunner - > Script parsing
+Jun-28 03:07:11.890 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-28 03:07:11.970 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: null
+Jun-28 03:07:11.971 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'local'
+Jun-28 03:07:11.980 [main] DEBUG nextflow.executor.Executor - Initializing executor: local
+Jun-28 03:07:11.984 [main] INFO  nextflow.executor.Executor - [warm up] executor > local
+Jun-28 03:07:11.991 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=8 GB; capacity=4; pollInterval=100ms; dumpInterval=5m
+Jun-28 03:07:11.996 [main] DEBUG nextflow.processor.TaskDispatcher - Starting monitor: LocalPollingMonitor
+Jun-28 03:07:11.996 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-28 03:07:11.998 [main] DEBUG nextflow.executor.Executor - Invoke register for executor: local
+Jun-28 03:07:12.123 [main] DEBUG nextflow.Session - >>> barrier register (process: harvestlaunch)
+Jun-28 03:07:12.129 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > harvestlaunch -- maxForks: 4
+Jun-28 03:07:12.164 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jun-28 03:07:12.164 [main] DEBUG nextflow.Session - Session await
+Jun-28 03:07:12.305 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-28 03:07:12.311 [Task submitter] INFO  nextflow.Session - [02/ce00cf] Submitted process > harvestlaunch
+Jun-28 03:07:19.371 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: harvestlaunch; status: COMPLETED; exit: 0; error: -; workDir: /Users/linudz/WorkFlows/LTRGeek/ltrgeek/work/02/ce00cf53ed9d8a64a4ad3c0166de24]
+Jun-28 03:07:19.386 [Actor Thread 2] DEBUG nextflow.Session - <<< barrier arrive (process: harvestlaunch)
+Jun-28 03:07:19.387 [main] DEBUG nextflow.Session - Session await > all process finished
+Jun-28 03:07:19.468 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local)
+Jun-28 03:07:19.468 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-28 03:07:19.494 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=1; failedCount=0; ignoredCount=0; cachedCount=0; succeedDuration=6.8s; failedDuration=0ms; cachedDuration=0ms]
+Jun-28 03:07:19.505 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Jun-28 03:07:19.521 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
